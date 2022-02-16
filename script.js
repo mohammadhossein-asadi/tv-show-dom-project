@@ -1,4 +1,3 @@
-
 const movieData = async () => {
   const data = await axios.get("https://api.tvmaze.com/shows/82/episodes");
   return data;
@@ -7,6 +6,7 @@ const movieData = async () => {
 const movie = movieData()
   .then((res) => res.data)
   .then((data) => {
+    let name;
     data.forEach((element) => {
       console.log(element);
       let url = document.createElement("a");
@@ -17,7 +17,8 @@ const movie = movieData()
       link.id = "link";
       let title = document.createElement("h2");
       title.id = "title";
-      title.innerText = `${element.name}`;
+      name = title.innerText = `${element.name}`;
+      div.setAttribute("class", `${name}`);
       document.body.appendChild(div);
       div.appendChild(url);
       url.appendChild(link);
@@ -39,7 +40,23 @@ const movie = movieData()
       summary.id = "summary";
       summary.innerHTML = `${element.summary}`;
       div.appendChild(summary);
-	  
+      let select = document.querySelector("select");
+      let opt = document.createElement("option");
+      opt.innerText = `S0${element.number}-E0${element.season} 🎬 ${element.name}`;
+      select.appendChild(opt);
+    });
+    
+    let test = document.querySelector("div")
+    console.log(test.className);
+
+    select.addEventListener("change", (e) => {
+      let value = e.target.value;
+      // console.log(value);
+      let sliceName = value.substring(10);
+
+      if (sliceName !== title) {
+        document.getElementById("div").style.display = "none";
+      }
     });
   });
 
@@ -58,7 +75,3 @@ async function getData() {
   });
 }
 getData();
-
-
-
-
