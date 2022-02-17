@@ -10,6 +10,7 @@ const movie = movieData()
     data.forEach((element) => {
       console.log(element);
       let movieContainer = document.createElement("div");
+      movieContainer.id = "movieContainer";
       let url = document.createElement("a");
       url.id = "url";
       let div = document.createElement("div");
