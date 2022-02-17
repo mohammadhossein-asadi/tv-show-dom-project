@@ -9,6 +9,7 @@ const movie = movieData()
     let name;
     data.forEach((element) => {
       console.log(element);
+      let movieContainer = document.createElement("div");
       let url = document.createElement("a");
       url.id = "url";
       let div = document.createElement("div");
@@ -19,7 +20,9 @@ const movie = movieData()
       title.id = "title";
       name = title.innerText = `${element.name}`;
       div.setAttribute("class", `${name}`);
-      document.body.appendChild(div);
+      div.classList.add("container");
+      document.body.appendChild(movieContainer);
+      movieContainer.appendChild(div);
       div.appendChild(url);
       url.appendChild(link);
       url.href = `${element.url}`;
@@ -45,14 +48,22 @@ const movie = movieData()
       opt.innerText = `S0${element.number}-E0${element.season} 🎬 ${element.name}`;
       select.appendChild(opt);
     });
-    
-    let test = document.querySelector("div")
-    console.log(test.className);
+
+    // let test = document.querySelector("div")
+    // console.log(test.className);
 
     select.addEventListener("change", (e) => {
       let value = e.target.value;
       // console.log(value);
       let sliceName = value.substring(10);
+
+      let divClass = [];
+
+      let allDiv = document.querySelectorAll("container");
+      allDiv.forEach((element) => {
+        divClass.push(element.classList);
+        console.log(divClass);
+      });
 
       if (sliceName !== title) {
         document.getElementById("div").style.display = "none";
