@@ -1,90 +1,124 @@
-const movieData = async () => {
-  const data = await axios.get("https://api.tvmaze.com/shows/82/episodes");
-  return data;
+// # Get data from tvmaze api
+const getData = async () => {
+  try {
+    const response = await fetch("https://api.tvmaze.com/shows/169/episodes");
+    const data = await response.json();
+    movieData(data);
+    // console.log(data);
+  } catch (err) {
+    return err;
+  }
 };
+getData();
 
-const movie = movieData()
-  .then((res) => res.data)
-  .then((data) => {
-    let name;
-    data.forEach((element) => {
-      console.log(element);
-      let movieContainer = document.createElement("div");
-      movieContainer.id = "movieContainer";
-      let url = document.createElement("a");
-      url.id = "url";
-      let div = document.createElement("div");
-      div.id = "div";
-      let link = document.createElement("div");
-      link.id = "link";
-      let title = document.createElement("h2");
-      title.id = "title";
-      name = title.innerText = `${element.name}`;
-      div.setAttribute("class", `${name}`);
-      div.classList.add("container");
-      document.body.appendChild(movieContainer);
-      movieContainer.appendChild(div);
-      div.appendChild(url);
-      url.appendChild(link);
-      url.href = `${element.url}`;
-      link.appendChild(title);
-      let image = document.createElement("img");
-      image.id = "image";
-      image.src = `${element.image.medium}`;
-      link.appendChild(image);
-      let numberOfse = document.createElement("span");
-      numberOfse.id = "season";
-      numberOfse.innerText = `🎥 S0${element.number}-E0${element.season}`;
-      div.appendChild(numberOfse);
-      let rating = document.createElement("span");
-      rating.id = "rating";
-      rating.innerText = `${element.rating.average}`;
-      div.appendChild(rating);
-      let summary = document.createElement("p");
-      summary.id = "summary";
-      summary.innerHTML = `${element.summary}`;
-      div.appendChild(summary);
-      let select = document.querySelector("select");
-      let opt = document.createElement("option");
-      opt.innerText = `S0${element.number}-E0${element.season} 🎬 ${element.name}`;
-      select.appendChild(opt);
-    });
+const movieData = (movie) => {
+  let movieSelect = document.getElementById("search");
+  let allEpisodes = document.createElement("option");
+  allEpisodes.textContent = "All Episodes";
+  movieSelect.append(allEpisodes);
 
-    // let test = document.querySelector("div")
-    // console.log(test.className);
+  for (const movies of movie) {
+    //* Create element
 
-    select.addEventListener("change", (e) => {
-      let value = e.target.value;
-      // console.log(value);
-      let sliceName = value.substring(10);
+    let movieContainer = document.createElement("div");
+    let movieTitle = document.createElement("h3");
+    let movieImage = document.createElement("img");
+    let movieNumber = document.createElement("p");
+    let movieRating = document.createElement("span");
+    let movieSummary = document.createElement("p");
+    let movieWatch = document.createElement("button");
+    let movieLink = document.createElement("a");
+    let movieSection = document.getElementById("content");
+    let movieOption = document.createElement("option");
 
-      let divClass = [];
+    //* Assign values ​​to variables
 
-      let allDiv = document.querySelectorAll("container");
-      allDiv.forEach((element) => {
-        element.classlist.contains("")
-        console.log(divClass);
-      });
+    movieImage.src = movies.image.medium;
+    movieNumber.textContent = `S0${movies.season} - E0${movies.number}`;
+    if (movies.season > 9 || movies.number > 9) {
+      movieNumber.textContent = `S0${movies.season} - E${movies.number}`;
+    }
+    movieRating.textContent = movies.rating.average;
+    movieSummary.innerHTML = movies.summary;
+    movieTitle.textContent = movies.name;
+    movieTitle.classList.add("card-title");
+    movieLink.href = movies.url;
+    movieOption.value = `${movies.name}`;
+    movieWatch.textContent = "Play Movie";
+    movieOption.textContent = `S0${movies.season} - E0${movies.number} - ${movies.name}`;
+    if (movies.season > 9 || movies.number > 9) {
+      movieOption.textContent = `S0${movies.season} - E${movies.number} - ${movies.name}`;
+    }
+    //* Set ID & CLASS and append element
+    movieRating.classList.add("rating");
+    movieNumber.classList.add("number");
+    movieSummary.classList.add("summary");
+    movieOption.classList.add("movieOption");
+    movieContainer.classList.add("card");
+    movieContainer.append(
+      movieTitle,
+      movieImage,
+      movieNumber,
+      movieRating,
+      movieWatch,
+      movieLink,
+      movieSummary
+    );
 
-      if (sliceName !== title) {
-        document.getElementById("div").style.display = "none";
+    //* Append to body
+
+    document.body.append(movieContainer);
+    movieLink.append(movieWatch);
+    movieSection.appendChild(movieContainer);
+    movieSelect.append(movieOption);
+    movieNumber.appendChild(movieRating);
+  }
+
+  //* Select input and create search box
+
+  let search = document.getElementById("searchInput");
+  // console.log(search);
+
+  search.addEventListener("keyup", () => {
+    const input = document.getElementById("searchInput").value.toUpperCase();
+    // console.log(input);
+    const cardContainer = document.getElementById("content");
+    // console.log(cardContainer);
+    const cards = cardContainer.getElementsByClassName("card");
+    // console.log(cards);
+    //* Iterate of cards and change display
+    for (let i = 0; i < cards.length; i++) {
+      let title = cards[i].querySelector(".card .card-title");
+      // console.log(title);
+      if (title.innerHTML.toUpperCase().indexOf(input) > -1) {
+        cards[i].style.display = "";
+      } else {
+        cards[i].style.display = "none";
       }
-    });
+    }
   });
 
-console.log(movie);
+  movieSelectOpt();
+};
 
-// let search = document.querySelector("input");
+//* Add eventListener for clean input value
+const movieSelectOpt = () => {
+  const select = document.getElementById("search");
+  const cardContainer = document.getElementById("content");
+  // console.log(cardContainer);
+  const cards = cardContainer.getElementsByClassName("card");
 
-// async function getData() {
-//   const data = await axios.get("https://api.tvmaze.com/shows/82/episodes");
-//   const movies = data.data;
-//   console.log(movies);
-
-//   search.addEventListener("keyup", (e) => {
-//     const data = movies.filter((movie) => movie.body.includes(e.target.value));
-//     console.log(data);
-//   });
-// }
-// getData();
-
+  select.addEventListener("change", function handleChange(event) {
+    let test = event.target.value;
+    // console.log(test);
+    for (let i = 0; i < cards.length; i++) {
+      let title = cards[i].querySelector(".card .card-title");
+      // console.log(title.innerHTML);
+      if (test === title.innerHTML || test === "All Episodes") {
+        cards[i].style.display = "";
+      } else {
+        cards[i].style.display = "none";
+      }
+    }
+  });
+};
