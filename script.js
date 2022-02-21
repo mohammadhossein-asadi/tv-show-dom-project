@@ -62,7 +62,7 @@ const movie = movieData()
 
       let allDiv = document.querySelectorAll("container");
       allDiv.forEach((element) => {
-        divClass.push(element.classList);
+        element.classlist.contains("")
         console.log(divClass);
       });
 
@@ -74,16 +74,17 @@ const movie = movieData()
 
 console.log(movie);
 
-let search = document.querySelector("input");
+// let search = document.querySelector("input");
 
-async function getData() {
-  const data = await axios.get("https://api.tvmaze.com/shows/82/episodes");
-  const movies = data.data;
-  console.log(movies);
+// async function getData() {
+//   const data = await axios.get("https://api.tvmaze.com/shows/82/episodes");
+//   const movies = data.data;
+//   console.log(movies);
 
-  search.addEventListener("keyup", (e) => {
-    const data = movies.filter((movie) => movie.body.includes(e.target.value));
-    console.log(data);
-  });
-}
-getData();
+//   search.addEventListener("keyup", (e) => {
+//     const data = movies.filter((movie) => movie.body.includes(e.target.value));
+//     console.log(data);
+//   });
+// }
+// getData();
+
