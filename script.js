@@ -44,12 +44,14 @@ const movieData = (movie) => {
     movieTitle.classList.add("card-title");
     movieLink.href = movies.url;
     movieOption.value = `${movies.name}`;
-    movieWatch.textContent = "Play Movie";
+    movieWatch.innerHTML = `<i class="fa-solid fa-play"></i> Play Movie`;
     movieOption.textContent = `S0${movies.season} - E0${movies.number} - ${movies.name}`;
     if (movies.season > 9 || movies.number > 9) {
       movieOption.textContent = `S0${movies.season} - E${movies.number} - ${movies.name}`;
     }
     //* Set ID & CLASS and append element
+    movieWatch.classList.add("button")
+    movieLink.classList.add("link")
     movieRating.classList.add("rating");
     movieNumber.classList.add("number");
     movieSummary.classList.add("summary");
