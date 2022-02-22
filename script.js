@@ -49,7 +49,9 @@ const movieData = (movie) => {
     if (movies.season > 9 || movies.number > 9) {
       movieOption.textContent = `S0${movies.season} - E${movies.number} - ${movies.name}`;
     }
+
     //* Set ID & CLASS and append element
+
     movieImage.classList.add("image");
     movieWatch.classList.add("button");
     movieLink.classList.add("link");
@@ -102,6 +104,7 @@ const movieData = (movie) => {
   });
 
   movieSelectOpt();
+  
 };
 
 //* Add eventListener for clean input value
