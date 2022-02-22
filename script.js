@@ -50,8 +50,9 @@ const movieData = (movie) => {
       movieOption.textContent = `S0${movies.season} - E${movies.number} - ${movies.name}`;
     }
     //* Set ID & CLASS and append element
-    movieWatch.classList.add("button")
-    movieLink.classList.add("link")
+    movieImage.classList.add("image");
+    movieWatch.classList.add("button");
+    movieLink.classList.add("link");
     movieRating.classList.add("rating");
     movieNumber.classList.add("number");
     movieSummary.classList.add("summary");
