@@ -1,4 +1,4 @@
-/* Poppins Font */
+/** Poppins Font */
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
 
@@ -6,7 +6,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
 .header {
@@ -14,11 +13,225 @@
   justify-content: space-around;
   flex-wrap: wrap;
   height: 200px;
-  background-color: slategrey;
+  background-color: #0b0b10;
   padding-top: 20px;
 }
 
+/** Text animation */
+
+@font-face {
+  font-family: Clip;
+  src: url("https://acupoftee.github.io/fonts/Clip.ttf");
+}
+
+body {
+  background-color: #0b0b10;
+}
+
+/* .text{
+  height: 200px;
+  background-color: #44318d;
+} */
+
+.sign {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 150px;
+  background-image: radial-gradient(
+    ellipse 50% 35% at 50% 50%,
+    aqua,
+    transparent
+  );
+  transform: translate(-50%, -50%);
+  letter-spacing: 2;
+  left: 50%;
+  top: 20%;
+  font-family: "Clip";
+  text-transform: uppercase;
+  font-size: 6em;
+  color: #ffe6ff;
+  text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #45a29e,
+    -0.2rem 0.1rem 1rem #45a29e, 0.2rem 0.1rem 1rem #45a29e,
+    0 -0.5rem 2rem #66fcf1, 0 0.5rem 3rem #66fcf1;
+  animation: shine 2s forwards, flicker 3s infinite;
+}
+
+@keyframes blink {
+  0%,
+  22%,
+  36%,
+  75% {
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #45a29e,
+      -0.2rem 0.1rem 1rem #45a29e, 0.2rem 0.1rem 1rem #45a29e,
+      0 -0.5rem 2rem #66fcf1, 0 0.5rem 3rem #66fcf1;
+  }
+  28%,
+  33% {
+    color: #45a29e;
+    text-shadow: none;
+  }
+  82%,
+  97% {
+    color: #66fcf1;
+    text-shadow: none;
+  }
+}
+
+.flicker {
+  animation: shine 2s forwards, blink 3s 2s infinite;
+}
+
+.fast-flicker {
+  animation: shine 2s forwards, blink 10s 1s infinite;
+}
+
+@keyframes shine {
+  0% {
+    color: aqua;
+    text-shadow: none;
+  }
+  100% {
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #45a29e,
+      -0.2rem 0.1rem 1rem #45a29e, 0.2rem 0.1rem 1rem #45a29e,
+      0 -0.5rem 2rem #66fcf1, 0 0.5rem 3rem #66fcf1;
+  }
+}
+
+@keyframes flicker {
+  from {
+    opacity: 1;
+  }
+
+  4% {
+    opacity: 0.9;
+  }
+
+  6% {
+    opacity: 0.85;
+  }
+
+  8% {
+    opacity: 0.95;
+  }
+
+  10% {
+    opacity: 0.9;
+  }
+
+  11% {
+    opacity: 0.922;
+  }
+
+  12% {
+    opacity: 0.9;
+  }
+
+  14% {
+    opacity: 0.95;
+  }
+
+  16% {
+    opacity: 0.98;
+  }
+
+  17% {
+    opacity: 0.9;
+  }
+
+  19% {
+    opacity: 0.93;
+  }
+
+  20% {
+    opacity: 0.99;
+  }
+
+  24% {
+    opacity: 1;
+  }
+
+  26% {
+    opacity: 0.94;
+  }
+
+  28% {
+    opacity: 0.98;
+  }
+
+  37% {
+    opacity: 0.93;
+  }
+
+  38% {
+    opacity: 0.5;
+  }
+
+  39% {
+    opacity: 0.96;
+  }
+
+  42% {
+    opacity: 1;
+  }
+
+  44% {
+    opacity: 0.97;
+  }
+
+  46% {
+    opacity: 0.94;
+  }
+
+  56% {
+    opacity: 0.9;
+  }
+
+  58% {
+    opacity: 0.9;
+  }
+
+  60% {
+    opacity: 0.99;
+  }
+
+  68% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.9;
+  }
+
+  72% {
+    opacity: 0.95;
+  }
+
+  93% {
+    opacity: 0.93;
+  }
+
+  95% {
+    opacity: 0.95;
+  }
+
+  97% {
+    opacity: 0.93;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/** Test animation */
+
 #content {
+  font-family: "Poppins", sans-serif;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -31,7 +244,7 @@
   min-height: 320px;
   width: 300px;
   margin: 15px;
-  background-color: #44318d;
+  background-color: #1f2833;
   background-size: cover;
   border-radius: 15px;
   background-position: center center;
@@ -40,7 +253,7 @@
 }
 
 .card .summary {
-  color: #fff;
+  color: #c5c6c7;
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -52,7 +265,6 @@
   font-weight: 900;
   padding: 10px;
   text-align: center;
-  text-shadow: 1px -1px 15px rgba(14, 13, 13, 1);
   transition: all 0.3s ease 0s;
 }
 
@@ -68,10 +280,18 @@
 .number {
   display: flex;
   justify-content: space-around;
+  color: #fff;
+  font-size: 20px;
 }
 
 .card-title {
-  text-shadow: 2px 3px 10px rgb(173, 173, 173);
+  color: #fff;
+  padding-top: 15px;
+  font-size: 18px;
+}
+
+.card:hover .card-title {
+  text-shadow: 4px 4px 15px #66fcf1;
 }
 
 .image {
@@ -80,5 +300,38 @@
   height: 160px;
 }
 
-.link {
+button {
+  margin-top: 10px;
+  padding: 6px 20px;
+  border: 2px solid #66fcf1;
+  background-color: #1f2833;
+  color: #c5c6c7;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+/* # Swiper */
+
+.swiper {
+  width: 85%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+/* # Swiper */
+
+.swiper-pagination-bullet {
+  background-color: #66fcf1;
 }
