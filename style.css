@@ -12,14 +12,25 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  height: 100px;
+  height: 60px;
   background-color: #0b0b10;
   padding-top: 20px;
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 125;
 }
 
+input {
+  border: 2px solid #66fcf1;
+  width: 230px;
+  height: 35px;
+}
+
+select {
+  border: 2px solid #66fcf1;
+  width: 240px;
+  height: 35px;
+}
 /** Text animation */
 
 @font-face {
@@ -47,7 +58,7 @@ body {
   transform: translate(-50%, -50%);
   letter-spacing: 2;
   left: 50%;
-  top: 20%;
+  top: 15%;
   font-family: "Clip";
   /* text-transform: uppercase; */
   font-size: 6em;
@@ -56,6 +67,7 @@ body {
     -0.2rem 0.1rem 1rem #45a29e, 0.2rem 0.1rem 1rem #45a29e,
     0 -0.5rem 2rem #66fcf1, 0 0.5rem 3rem #66fcf1;
   animation: shine 2s forwards, flicker 3s infinite;
+  margin-top: 70px;
 }
 
 @keyframes blink {
@@ -237,7 +249,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .card {
@@ -320,7 +331,7 @@ button {
   width: 85%;
   padding-top: 50px;
   padding-bottom: 50px;
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .swiper-slide {
@@ -468,7 +479,7 @@ button {
   .info {
     text-align: center;
   }
-  .info p{
+  .info p {
     text-align: left;
   }
   .social-media {
@@ -482,7 +493,7 @@ button {
     margin-top: 50px;
     font-size: 2.5rem;
   }
-  .social-media h4{
+  .social-media h4 {
     margin-bottom: 50px;
     font-size: 1.8rem;
   }
