@@ -338,3 +338,120 @@ button {
 .swiper-pagination-bullet {
   background-color: #66fcf1;
 }
+
+/** Footer */
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  vertical-align: middle;
+  min-height: 250px;
+  /** flex-wrap: wrap; */
+  color: white;
+  font-family: "b nazanin";
+  margin-top: 15px;
+}
+
+/** site information */
+
+.info {
+  width: 55%;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  margin-left: 46px;
+  margin-top: 24px;
+}
+
+.info p,
+.info h4 {
+  color: #c5c6c7;
+}
+
+.info p {
+  padding-bottom: 35px;
+}
+
+/** contact us icon */
+
+.social-media {
+  width: 35%;
+  margin-bottom: 90px;
+  margin-right: 40px;
+  color: #c5c6c7;
+  font-family: "Poppins", sans-serif;
+}
+
+.social-media i {
+  border-radius: 50%;
+  font-size: 2rem;
+  margin-left: 80px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.social-media i:hover {
+  transform: scale(1.2);
+}
+
+.social-media #telegram:hover {
+  background-color: #28a8e9;
+}
+
+#linkedin:hover {
+  background-color: #0a66c2;
+}
+
+#instagram:hover {
+  border-radius: 50%;
+  background: #d6249f;
+  background: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+}
+
+#twitter:hover {
+  background-color: #1a8cd8;
+}
+
+.social-media h4 {
+  font-size: 1.8rem;
+  text-align: right;
+  margin-bottom: 50px;
+  text-align: center;
+  text-shadow: 4px 4px 15px #66fcf1;
+}
+
+.info h4 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-shadow: 4px 4px 15px #66fcf1;
+}
+
+.page-footer {
+  background-color: #1f2833;
+}
+
+.svg {
+  height: 10%;
+}
+/** Footer */
+
+/******************** Media query ********************/
+
+@media only screen and (max-width: 1100px) {
+  .social-media h4 {
+    display: flex;
+    font-size: 1.3rem;
+    justify-content: center;
+    margin: auto;
+  }
+  .social-media i {
+    font-size: 1.2rem;
+  }
+}
