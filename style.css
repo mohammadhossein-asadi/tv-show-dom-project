@@ -475,6 +475,7 @@ button {
   }
   .header {
     z-index: 120;
+    height: 130px;
   }
   .info {
     text-align: center;
@@ -496,5 +497,17 @@ button {
   .social-media h4 {
     margin-bottom: 50px;
     font-size: 1.8rem;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .header{
+    height: 125px;
+  }
+}
+
+@media only screen and (max-width: 465px) {
+  .header{
+    height: 130px;
   }
 }
