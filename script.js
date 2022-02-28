@@ -11,6 +11,8 @@ const getData = async () => {
 };
 getData();
 
+// # Use data for create element
+
 const movieData = (movie) => {
   let movieSelect = document.getElementById("search");
   let allEpisodes = document.createElement("option");
@@ -50,7 +52,7 @@ const movieData = (movie) => {
       movieOption.textContent = `S0${movies.season} - E${movies.number} - ${movies.name}`;
     }
 
-    //* Set ID & CLASS and append element
+    //* Set ID & CLASS and Append element
 
     movieImage.classList.add("image");
     movieWatch.classList.add("button");

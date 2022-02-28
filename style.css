@@ -285,6 +285,10 @@ body {
   opacity: 1;
 }
 
+.summary p{
+  text-align: justify;
+}
+
 .card:hover {
   transform: scale(1.1);
   cursor: pointer;
@@ -383,6 +387,10 @@ button {
 
 .info p {
   padding-bottom: 35px;
+}
+
+.storyline {
+  text-align: justify;
 }
 
 /** contact us icon */
@@ -501,13 +509,13 @@ button {
 }
 
 @media only screen and (max-width: 480px) {
-  .header{
+  .header {
     height: 125px;
   }
 }
 
 @media only screen and (max-width: 465px) {
-  .header{
+  .header {
     height: 130px;
   }
 }
